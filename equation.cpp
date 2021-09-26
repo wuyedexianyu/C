@@ -3,7 +3,7 @@
 int main()
 {
 	float x1, x2, a, b, c, v;
-	printf("Please enter the a, b and c: ");
+	printf("Please enter a, b and c: ");
 	scanf("%f %f %f", &a, &b, &c);
 	v = b * b - 4 * a * c;
 	if (v >= 0)
