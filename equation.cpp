@@ -3,6 +3,7 @@
 int main()
 {
 	float x1, x2, a, b, c, v;
+	printf("Please turn the equation into ax^2 + bx + c = 0.\n");
 	printf("Please enter a, b and c: ");
 	scanf("%f %f %f", &a, &b, &c);
 	v = b * b - 4 * a * c;
