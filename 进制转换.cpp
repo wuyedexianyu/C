@@ -4,11 +4,11 @@ int main()
 	int a, b, c = 0, dec, n = 0, m, r1 = 10, r2 = 10;
 	while ( r1 > 0 && r2 > 0)
 	{
-		printf("ÇëÊäÈë½øÖÆµÄÊý×Ö£¬ÊäÈë0»ò¸ºÊýÒÔÍË³ö¡£\n");
-		printf("(Ä¿Ç°½öÖ§³ÖÊ®½øÖÆÒÔÄÚµÄ×ª»»)\n");
-		printf("ÇëÊäÈëÐèÒª×ª»¯µÄ½øÖÆ: \n");
+		printf("è¯·è¾“å…¥è¿›åˆ¶çš„æ•°å­—ï¼Œè¾“å…¥0æˆ–è´Ÿæ•°ä»¥é€€å‡ºã€‚\n");
+		printf("(ç›®å‰ä»…æ”¯æŒåè¿›åˆ¶ä»¥å†…çš„è½¬æ¢)\n");
+		printf("è¯·è¾“å…¥éœ€è¦è½¬åŒ–çš„è¿›åˆ¶: \n");
 		scanf("%d", &r1);
-		printf("ÇëÊäÈë×ª»¯ºóµÄ½øÖÆ: \n");
+		printf("è¯·è¾“å…¥è½¬åŒ–åŽçš„è¿›åˆ¶: \n");
 		scanf("%d", &r2);
 		if (r1 <= 0 || r2 <= 0)
 			break;
@@ -16,12 +16,11 @@ int main()
 			printf("WRONG!\n");
 		while ( r1 > 1 && r2 > 1 && r1 <= 10 && r2 <= 10)
 		{
-			printf("ÇëÊäÈëÊý×Ö£¨ÊäÈëÁãÒÔÍË³ö£©: \n");
+			printf("è¯·è¾“å…¥æ•°å­—ï¼ˆè¾“å…¥é›¶ä»¥é€€å‡ºï¼‰: \n");
 			scanf("%d", &a);
 			if (a == 0)
 				break;
 			n = 0;
-			dec = 0;
 			c = 0;
 			while ( a != 0)
 			{
@@ -36,7 +35,7 @@ int main()
 				dec += b;
 				n++; 				
 			}
-			printf("Ê®½øÖÆ½á¹ûÎª: %d\n", dec);
+			printf("åè¿›åˆ¶ç»“æžœä¸º: %d\n", dec);
 			n = 0;
 			while (dec != 0)
 			{
@@ -53,17 +52,17 @@ int main()
 			}
 			switch (r2)
 			{
-				case 2: printf("¶þ"); break;
-				case 3: printf("Èý"); break;
-				case 4: printf("ËÄ"); break;
-				case 5: printf("Îå"); break;
-				case 6: printf("Áù"); break;
-				case 7: printf("Æß"); break;
-				case 8: printf("°Ë"); break;
-				case 9: printf("¾Å"); break;
-				case 10: printf("Ê®"); break; 
+				case 2: printf("äºŒ"); break;
+				case 3: printf("ä¸‰"); break;
+				case 4: printf("å››"); break;
+				case 5: printf("äº”"); break;
+				case 6: printf("å…­"); break;
+				case 7: printf("ä¸ƒ"); break;
+				case 8: printf("å…«"); break;
+				case 9: printf("ä¹"); break;
+				case 10: printf("å"); break; 
 			}
-			printf("½øÖÆ½á¹ûÎª: %d\n", c);
+			printf("è¿›åˆ¶ç»“æžœä¸º: %d\n", c);
 		}
 		printf("\n");
 	}
