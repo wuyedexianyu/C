@@ -8,6 +8,8 @@ int main()
 		printf("(目前仅支持十进制以内的转换)\n");
 		printf("请输入需要转化的进制: \n");
 		scanf("%d", &r1);
+		if (r1 <= 0 || r2 <= 0)
+			break;
 		printf("请输入转化后的进制: \n");
 		scanf("%d", &r2);
 		if (r1 <= 0 || r2 <= 0)
