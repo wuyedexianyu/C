@@ -1,24 +1,50 @@
 #include <stdio.h>
+void clear_digital_array(void);
+void print_digital_array(char b[3][99999], int n);
+void process_digit(int a[999], char b[3][99999], int n);
 int main()
 {
-	int i, n = 0, a[999], m, j, k;
-	char ch, number, b[3][99999];
-	const int segment[10][7] = {{1, 1, 1, 1, 1, 1, 0}, {0, 1, 1, 0, 0, 0, 0}, 
-				    {1, 1, 0, 1, 1, 0, 1}, {1, 1, 1, 1, 0, 0, 1}, 
-				    {0, 1, 1, 0, 0, 1, 1}, {1, 0, 1, 1, 0, 1, 1}, 
-				    {1, 0, 1, 1, 1, 1, 1}, {1, 1, 1, 0, 0, 0, 0}, 
-				    {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 0, 1, 1}};
+	int n = 0, a[999];
+	char ch, b[3][99999];
 	printf("Please enter a number: ");
 	while ((ch = getchar()) != '\n')
 		{
 			a[n] = (int)ch - 48;
 			n++;
 		}
+	clear_digital_array();
+	process_digit(a, b, n);
+	print_digital_array(b, n);
+	return 0;
+}
+void clear_digital_array(void)
+{
+	int i, j;
+	char b[3][99999];
 	for (i = 0; i < 3; i++)
 	{
 		for (j = 0; j < 99999; j++)
 			b[i][j] = ' ';
 	}
+}
+void print_digital_array(char b[3][99999], int n)
+{
+	int i, j;
+	for (i = 0; i < 3; i++)
+	{
+		for (j = 0; j < 4 * n; j++)
+			printf("%c", b[i][j]);
+		printf("\n");
+	}
+}
+void process_digit(int a[999], char b[3][99999], int n)
+{
+	int i;
+	const int segment[10][7] = {{1, 1, 1, 1, 1, 1, 0}, {0, 1, 1, 0, 0, 0, 0},
+                                {1, 1, 0, 1, 1, 0, 1}, {1, 1, 1, 1, 0, 0, 1},
+								{0, 1, 1, 0, 0, 1, 1}, {1, 0, 1, 1, 0, 1, 1},
+								{1, 0, 1, 1, 1, 1, 1}, {1, 1, 1, 0, 0, 0, 0},
+								{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 0, 1, 1}};
 	for (i = 0; i < n; i++)
 	{
 		if (segment[a[i]][0] == 1)
@@ -36,14 +62,4 @@ int main()
 		if (segment[a[i]][6] == 1)
 			b[1][4 * i + 1] = '_';	
 	}
-	for (i = 0; i < 3; i++)
-	{
-		for (j = 0; j < 4 * n; j++)
-		{
-			printf("%c", b[i][j]);
-		}
-		printf("\n");
-	}
-	return 0;
 }
-
