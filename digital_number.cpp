@@ -9,8 +9,11 @@ int main()
 	printf("Please enter a number: ");
 	while ((ch = getchar()) != '\n')
 		{
-			a[n] = (int)ch - 48;
-			n++;
+			if (ch <= 57 && ch >= 48)
+			{
+				a[n] = (int)ch - 48;
+				n++;
+			}
 		}
 	clear_digital_array();
 	process_digit(a, b, n);
