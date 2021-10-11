@@ -1,72 +1,114 @@
 #include <stdio.h>
+int get_decimal(int a[], int n, int r2);
 int main()
 {
-	int a, b, c = 0, dec, n = 0, m, r1 = 10, r2 = 10;
-	while ( r1 > 0 && r2 > 0)
+	int a[999], b, c = 0, dec = 10, i, n = 0, m, r1 = 10, r2 = 10;
+	char ch, num, l[999], x;
+	while (r1 > 0 && r2 > 0)
 	{
-		printf("è¯·è¾“å…¥è¿›åˆ¶çš„æ•°å­—ï¼Œè¾“å…¥0æˆ–è´Ÿæ•°ä»¥é€€å‡ºã€‚\n");
-		printf("(ç›®å‰ä»…æ”¯æŒåè¿›åˆ¶ä»¥å†…çš„è½¬æ¢)\n");
-		printf("è¯·è¾“å…¥éœ€è¦è½¬åŒ–çš„è¿›åˆ¶: \n");
+		printf("ÇëÊäÈë½øÖÆµÄÊý×Ö£¬ÊäÈë0»ò¸ºÊýÒÔÍË³ö¡£\n");
+		printf("(Ä¿Ç°½öÖ§³ÖÈýÊ®Áù½øÖÆÒÔÄÚµÄ×ª»»)\n");
+		printf("ÇëÊäÈëÐèÒª×ª»¯µÄ½øÖÆ: \n");
 		scanf("%d", &r1);
 		if (r1 <= 0 || r2 <= 0)
 			break;
-		printf("è¯·è¾“å…¥è½¬åŒ–åŽçš„è¿›åˆ¶: \n");
+		printf("ÇëÊäÈë×ª»¯ºóµÄ½øÖÆ: \n");
 		scanf("%d", &r2);
 		if (r1 <= 0 || r2 <= 0)
 			break;
-		if (r1 == 1 || r2 == 1 || r1 > 10 || r2 > 10)
+		if (r1 == 1 || r2 == 1 || r1 > 36 || r2 > 36)
 			printf("WRONG!\n");
-		while ( r1 > 1 && r2 > 1 && r1 <= 10 && r2 <= 10)
+		while (r1 > 1 && r2 > 1 && r1 <= 36 && r2 <= 36)
 		{
-			printf("è¯·è¾“å…¥æ•°å­—ï¼ˆè¾“å…¥é›¶ä»¥é€€å‡ºï¼‰: \n");
-			scanf("%d", &a);
-			if (a == 0)
-				break;
+			printf("ÇëÊäÈëÊý×Ö(ÊäÈëÁãÒÔÍË³ö): \n");
 			n = 0;
-			c = 0;
-			while ( a != 0)
+			for (i = 0; i < 999; i++)
+				a[i] = 0;
+			if ((ch = getchar()) == '\n')
+				ch = getchar();
+			while (ch != '\n')
 			{
-				b = a % 10;
-				a /= 10;
-				m = n;
-				while (m > 0)
-				{
-					b *= r1;
-					m--;
-				}
-				dec += b;
-				n++; 				
+				if (ch >= 48 && ch <= 57)
+					a[n] = (int)ch - 48;
+				if (ch >= 97 && ch <= 122)
+					a[n] = (int)ch - 87;
+				if (ch >= 65 && ch <= 90)
+					a[n] = (int)ch - 55;
+				ch = getchar();
+				n++;
 			}
-			printf("åè¿›åˆ¶ç»“æžœä¸º: %d\n", dec);
+			for (i = 0; i < n; i++)
+				printf("", a[i]);//???
+			dec = get_decimal(a, n, r1);
+			if (dec == 0)
+				break;
+			printf("Ê®½øÖÆ½á¹ûÎª: %d\n", dec);
 			n = 0;
 			while (dec != 0)
 			{
 				b = dec % r2;
-				dec /= r2;
-				m = n;
-				while (m > 0)
-				{
-					b *= 10;
-					m--;
-				}
-				c += b;
+				dec /= r2; 
+				if (b >= 0 && b <= 9)
+					l[n] = (char)(b + 48);
+				if (b >= 10 && b <= 35)
+					l[n] = (char)(b + 55);
 				n++;
 			}
 			switch (r2)
 			{
-				case 2: printf("äºŒ"); break;
-				case 3: printf("ä¸‰"); break;
-				case 4: printf("å››"); break;
-				case 5: printf("äº”"); break;
-				case 6: printf("å…­"); break;
-				case 7: printf("ä¸ƒ"); break;
-				case 8: printf("å…«"); break;
-				case 9: printf("ä¹"); break;
-				case 10: printf("å"); break; 
+				case 2: printf("¶þ"); break;
+				case 3: printf("Èý"); break;
+				case 4: printf("ËÄ"); break;
+				case 5: printf("Îå"); break;
+				case 6: printf("Áù"); break;
+				case 7: printf("Æß"); break;
+				case 8: printf("°Ë"); break;
+				case 9: printf("¾Å"); break;
+				case 10: printf("Ê®"); break;
+				case 11: printf("Ê®Ò»"); break;
+				case 12: printf("Ê®¶þ"); break;
+				case 13: printf("Ê®Èý"); break;
+				case 14: printf("Ê®ËÄ"); break;
+				case 15: printf("Ê®Îå"); break;
+				case 16: printf("Ê®Áù"); break;
+				case 17: printf("Ê®Æß"); break;
+				case 18: printf("Ê®°Ë"); break;
+				case 19: printf("Ê®¾Å"); break;
+				case 20: printf("¶þÊ®"); break;
+				case 21: printf("¶þÊ®Ò»"); break;
+				case 22: printf("¶þÊ®¶þ"); break;
+				case 23: printf("¶þÊ®Èý"); break;
+				case 24: printf("¶þÊ®ËÄ"); break;
+				case 25: printf("¶þÊ®Îå"); break;
+				case 26: printf("¶þÊ®Áù"); break;
+				case 27: printf("¶þÊ®Æß"); break;
+				case 28: printf("¶þÊ®°Ë"); break;
+				case 29: printf("¶þÊ®¾Å"); break;
+				case 30: printf("ÈýÊ®"); break;
+				case 31: printf("ÈýÊ®Ò»"); break;
+				case 32: printf("ÈýÊ®¶þ"); break;
+				case 33: printf("ÈýÊ®Èý"); break;
+				case 34: printf("ÈýÊ®ËÄ"); break;
+				case 35: printf("ÈýÊ®Îå"); break;
+				case 36: printf("ÈýÊ®Áù"); break;
 			}
-			printf("è¿›åˆ¶ç»“æžœä¸º: %d\n", c);
+			printf("½øÖÆ½á¹ûÎª: ");
+			for (i = n - 1; i >= 0; i--)
+				printf("%c", l[i]);
+			printf("\n");
 		}
-		printf("\n");
 	}
 	return 0;
-} 
+}
+int get_decimal(int a[], int n, int r)
+{
+	int x, i, j, b;
+	for (i = n; i > 0; i--)
+	{
+		b = 1;
+		for (j = 0; j < i - 1; j++)
+				b *= r;
+		x += a[n - i] * b;
+	}
+	return x;
+}
