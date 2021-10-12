@@ -32,25 +32,41 @@ int main()
 			if (a[i] >= 11 || a[i] == 0)
 				b[i] = 10;
 		}
+		niu = 999;
 		for (i = 0; i < 5; i++)
 		{
 			for (m = i + 1; m < 5; m++)
 			{
+				if (m >= 5)
+					break;
 				for (n = m + 1; n < 5; n++)
 				{
+					if (n >= 5)
+						break;
 					k = (b[i] + b[m] + b[n]) % 10;
 					if (k == 0)
-						niu = (b[0] + b[1] + b[2] + b[3] + b[4]) % 10;
+							niu = (b[0] + b[1] + b[2] + b[3] + b[4]) % 10;						
 				}
 			}
 		}
 		if (niu == 999)
 			printf("没牛");
-		if (niu <= 10 && niu >= 0)
+		if (niu == 0)
+		{
+			for (i = 0; i < 5; i++)
+			{
+				if (a[i] >= 1 && a[i] <= 10)
+					k++;
+			} 
+			if (k == 0)
+				printf("五花牛");
+			else
+				printf("牛牛"); 
+		}
+		if (niu <= 9 && niu >= 1)
 		{
 			switch (niu)
 			{
-				case 0: printf("牛牛"); break;
 				case 1: printf("牛一"); break;
 				case 2: printf("牛二"); break;
 				case 3: printf("牛三"); break;
