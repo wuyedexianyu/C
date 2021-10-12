@@ -20,6 +20,10 @@ int main()
 	for (; b <= 'Y';)
 	{
 		step = rand() % 4; 
+		if (a[m - 1][n] != '.' && a[m][n + 1] != '.' && a[m + 1][n] != '.' && a[m][n - 1] != '.')
+			break;
+		if (a[m - 1][n] != '.' && a[m][n + 1] != '.' && a[m + 1][n] != '.' && m == 0)
+			break;
 		if (step == 0 && m > 0 && a[m - 1][n] == '.')
 			m--;
 		if (step == 1 && n < j - 1 && a[m][n + 1] == '.')
@@ -30,8 +34,8 @@ int main()
 			n--;
 		if (a[m][n] == '.')
 		{
-		b++;
-		a[m][n] = b;
+			b++;
+			a[m][n] = b;
 		}
 	}
 	for (m = 0; m < i; m++)
