@@ -5,16 +5,16 @@ void process_digit(int a[999], char b[3][99999], int n);
 int main()
 {
 	int n = 0, a[999];
-	char ch, b[3][99999];
+	char ch, b[3][99999], in[999], *p;
 	printf("Please enter a number: ");
-	while ((ch = getchar()) != '\n')
-		{
-			if (ch <= 57 && ch >= 48)
-			{
-				a[n] = (int)ch - 48;
-				n++;
-			}
-		}
+	scanf("%s", &in);
+	p = in;
+	while (*p != '\0')
+	{
+		if (*p <= 57 && *p >= 48)
+			a[n++] = (int)*p - 48;
+			*p++;
+	}
 	clear_digital_array();
 	process_digit(a, b, n);
 	print_digital_array(b, n);
@@ -25,10 +25,8 @@ void clear_digital_array(void)
 	int i, j;
 	char b[3][99999];
 	for (i = 0; i < 3; i++)
-	{
 		for (j = 0; j < 99999; j++)
 			b[i][j] = ' ';
-	}
 }
 void print_digital_array(char b[3][99999], int n)
 {
